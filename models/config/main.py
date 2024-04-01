@@ -23,3 +23,21 @@ class WebhookConfigObject:
     bot_path: str
     listen_address: str = field(default='localhost')
     listen_port: int = field(default=5000)
+
+
+@dataclass
+class GeneralConfigObject:
+    locale: str
+
+
+@dataclass
+class Config:
+    '''Summary storage class for sections.\n
+    attributes:\n
+    * telegram
+    * webhook
+    * general
+    '''
+    telegram: TelegramConfigObject
+    webhook: WebhookConfigObject
+    general: GeneralConfigObject
